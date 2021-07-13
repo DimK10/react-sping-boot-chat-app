@@ -1,6 +1,6 @@
-package com.kaitantzidis.chatApp.repository;
+package com.kaitantzidis.chatapp.repository;
 
-import com.kaitantzidis.chatApp.model.User;
+import com.kaitantzidis.chatapp.model.User;
 import org.springframework.data.repository.CrudRepository;
 
 public interface UserRepository extends CrudRepository<User, Long> {

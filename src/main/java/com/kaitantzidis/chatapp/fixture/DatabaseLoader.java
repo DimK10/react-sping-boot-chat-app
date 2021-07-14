@@ -57,12 +57,12 @@ public class DatabaseLoader implements CommandLineRunner {
         var messageFromJDoe = new Message().toBuilder().build();
         messageFromJDoe.setPayload("Hello Foo! How are you?");
         messageFromJDoe.setConversation(currentConverstation);
-        messageFromJDoe.setUser(jDoe);
+        messageFromJDoe.setSender(jDoe);
 
         var messageFromFooBar = new Message();
         messageFromFooBar.setPayload("Hello Joe! Im good, you?");
         messageFromFooBar.setConversation(currentConverstation);
-        messageFromFooBar.setUser(fBar);
+        messageFromFooBar.setSender(fBar);
 
 
         currentConverstation.addMessage(messageFromJDoe);

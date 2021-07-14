@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Εξυπηρετητής: localhost:3306
--- Χρόνος δημιουργίας: 14 Ιουλ 2021 στις 16:35:46
+-- Χρόνος δημιουργίας: 13 Ιουλ 2021 στις 18:53:07
 -- Έκδοση διακομιστή: 5.7.33
 -- Έκδοση PHP: 7.4.19
 
@@ -22,8 +22,17 @@ SET time_zone = "+00:00";
 --
 
 --
--- Άδειασμα δεδομένων του πίνακα `user`
+-- Άδειασμα δεδομένων του πίνακα `conversation`
 --
+
+
+
+TRUNCATE TABLE `message`;
+
+
+
+TRUNCATE TABLE `conversation_users_involved`;
+
 
 SET FOREIGN_KEY_CHECKS = 0;
 TRUNCATE TABLE `user`;
@@ -32,22 +41,18 @@ SET FOREIGN_KEY_CHECKS = 1;
 INSERT INTO `user` (`id`, `email`, `firstname`, `lastname`, `username`) VALUES
 (1, 'user0@gmail.com', 'John', 'Doe', 'jDoe'),
 (2, 'user1@gmail.com', 'Foo', 'Bar', 'fBar');
-
---
--- Άδειασμα δεδομένων του πίνακα `conversation`
---
+COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 0;
 TRUNCATE TABLE `conversation`;
 SET FOREIGN_KEY_CHECKS = 1;
 
 INSERT INTO `conversation` (`id`, `date_time_created`, `date_time_updated`) VALUES
-(3, '2021-07-14 19:35:01.786000', '2021-07-14 19:35:01.786000');
+(3, '2021-07-13 21:48:04.630000', '2021-07-13 21:48:04.630000');
 
 --
 -- Άδειασμα δεδομένων του πίνακα `conversation_users_involved`
 --
-
 SET FOREIGN_KEY_CHECKS = 0;
 TRUNCATE TABLE `conversation_users_involved`;
 SET FOREIGN_KEY_CHECKS = 1;
@@ -64,12 +69,17 @@ SET FOREIGN_KEY_CHECKS = 0;
 TRUNCATE TABLE `message`;
 SET FOREIGN_KEY_CHECKS = 1;
 
-INSERT INTO `message` (`id`, `date_time_created`, `type`, `payload`, `conversation_id`, `user_id`) VALUES
-(4, '2021-07-14 19:35:01.786000', 'common', 'Hello Foo! How are you?', 3, 1),
-(5, '2021-07-14 19:35:01.786000', 'common', 'Hello Joe! Im good, you?', 3, 2);
+INSERT INTO `message` (`id`, `date_time_created`, `payload`, `conversation_id`, `user_id`) VALUES
+(4, '2021-07-13 21:48:04.630000', 'Hello Foo! How are you?', 3, 1),
+(5, '2021-07-13 21:48:04.630000', 'Hello Joe! Im good, you?', 3, 2);
+
+--
+-- Άδειασμα δεδομένων του πίνακα `user`
+--
 
 
-COMMIT;
+
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
